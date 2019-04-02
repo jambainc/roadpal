@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Explore the parking spot to see descriptions."; ObjectID = "4dn-nE-XZX"; */
+"4dn-nE-XZX.text" = "Explore the parking spot to see descriptions.";
+
+/* Class = "UILabel"; text = "Fee: 3 - 5"; ObjectID = "A6n-II-sn0"; */
+"A6n-II-sn0.text" = "Fee: 3 - 5";
+
+/* Class = "UILabel"; text = "Time: 9 am - 5pm"; ObjectID = "B7M-fY-LOs"; */
+"B7M-fY-LOs.text" = "Time: 9 am - 5pm";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "E5t-xv-nq0"; */
+"E5t-xv-nq0.title" = "Item 2";
+
+/* Class = "UILabel"; text = "Search for a parking sign from this library"; ObjectID = "GGU-Q2-S7Y"; */
+"GGU-Q2-S7Y.text" = "Search for a parking sign from this library";
+
+/* Class = "UILabel"; text = "Library."; ObjectID = "MJg-as-HhQ"; */
+"MJg-as-HhQ.text" = "Library.";
+
+/* Class = "UILabel"; text = "Setting."; ObjectID = "TNc-Ue-sXH"; */
+"TNc-Ue-sXH.text" = "Setting.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kpB-Oj-4Lr"; */
+"kpB-Oj-4Lr.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Modify your preference"; ObjectID = "lWW-Jp-xBq"; */
+"lWW-Jp-xBq.text" = "Modify your preference";
+
+/* Class = "UILabel"; text = "Parking."; ObjectID = "npS-bY-eIO"; */
+"npS-bY-eIO.text" = "Parking.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "pBl-T0-R2s"; */
+"pBl-T0-R2s.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "tMq-dp-VYj"; */
+"tMq-dp-VYj.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "w5J-AS-RUK"; */
+"w5J-AS-RUK.normalTitle" = "Button";
