@@ -15,6 +15,7 @@
 		4B175D31225338D10039E461 /* ParkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B175D30225338D10039E461 /* ParkingController.swift */; };
 		4B175D35225339170039E461 /* LibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B175D34225339170039E461 /* LibraryController.swift */; };
 		4B175D37225339270039E461 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B175D36225339270039E461 /* SettingController.swift */; };
+		F96009702253542E002E9847 /* logo_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = F960096F2253542E002E9847 /* logo_transparent.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		4B175D34225339170039E461 /* LibraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryController.swift; sourceTree = "<group>"; };
 		4B175D36225339270039E461 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		F95D2B3E22534E58006C041C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		F960096F2253542E002E9847 /* logo_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_transparent.png; path = ../../../Pictures/logo_transparent.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				4B175D25225336020039E461 /* Assets.xcassets */,
 				4B175D27225336020039E461 /* LaunchScreen.storyboard */,
 				4B175D2A225336020039E461 /* Info.plist */,
+				F960096F2253542E002E9847 /* logo_transparent.png */,
 				4B175D22225336010039E461 /* RoadPal.xcdatamodeld */,
 			);
 			path = RoadPal;
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B175D29225336020039E461 /* LaunchScreen.storyboard in Resources */,
+				F96009702253542E002E9847 /* logo_transparent.png in Resources */,
 				4B175D26225336020039E461 /* Assets.xcassets in Resources */,
 				4B175D21225336010039E461 /* Main.storyboard in Resources */,
 			);
@@ -314,7 +318,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6CZ229W72W;
+				DEVELOPMENT_TEAM = D4E88Q87ES;
 				INFOPLIST_FILE = RoadPal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -332,7 +336,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6CZ229W72W;
+				DEVELOPMENT_TEAM = D4E88Q87ES;
 				INFOPLIST_FILE = RoadPal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
