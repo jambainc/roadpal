@@ -1,0 +1,53 @@
+[
+	{
+		"bayid" : 3356,
+		"lat" : -37.816762299937,
+		"long" : 144.945843741222,
+		"description" : "1P M-SUN 7:30-18:30",
+		"disabilityExt" : 30,
+		"duration" : 30,
+		"effectiveOnPH" : 0,
+		"endTime" : "18:30:00",
+		"exemption" : "",
+		"fromDay" : 1,
+		"startTime" : "07:30:00",
+		"toDay" : 0,
+		"typeDesc" : "1/4P",
+		"adjFromDay" : 1,
+		"adjToday" : 7
+	},
+	{
+		"bayid" : 3355,
+		"lat" : -37.816818278505,
+		"long" : 144.94586845561,
+		"description" : "2P M-SUN 7:30-18:30",
+		"disabilityExt" : 30,
+		"duration" : 20,
+		"effectiveOnPH" : 0,
+		"endTime" : "18:30:00",
+		"exemption" : "",
+		"fromDay" : 1,
+		"startTime" : "07:30:00",
+		"toDay" : 0,
+		"typeDesc" : "1/4P",
+		"adjFromDay" : 1,
+		"adjToday" : 7
+	},
+	{
+		"bayid" : 3485,
+		"lat" : -37.82223584937,
+		"long" : 144.94679796244,
+		"description" : "1/4P M-SUN 7:30-18:30",
+		"disabilityExt" : 30,
+		"duration" : 15,
+		"effectiveOnPH" : 0,
+		"endTime" : "18:30:00",
+		"exemption" : "",
+		"fromDay" : 1,
+		"startTime" : "07:30:00",
+		"toDay" : 0,
+		"typeDesc" : "1/4P",
+		"adjFromDay" : 1,
+		"adjToday" : 7
+	}
+]

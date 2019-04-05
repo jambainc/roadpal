@@ -9,14 +9,21 @@
 import UIKit
 
 class SettingController: UIViewController {
-
+    
+    @IBOutlet weak var titleView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setShadow()
         // Do any additional setup after loading the view.
     }
     
-
+    func setShadow(){
+        titleView.layer.shadowColor = UIColor.lightGray.cgColor
+        titleView.layer.shadowOpacity = 1
+        titleView.layer.shadowOffset = CGSize.zero
+        titleView.layer.shadowRadius = 10
+    }
+    
     /*
     // MARK: - Navigation
 

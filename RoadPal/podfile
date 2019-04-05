@@ -1,0 +1,5 @@
+platform :ios, '12.1'
+
+target 'RoadPal' do
+pod 'Mapbox-iOS-SDK', '~> 4.9'
+end
