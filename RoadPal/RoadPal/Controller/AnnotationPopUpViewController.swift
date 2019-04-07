@@ -10,8 +10,8 @@ import UIKit
 
 class AnnotationPopUpViewController: UIViewController {
 
+    @IBOutlet var backgroundUIView: UIView! //for on click to dismiss
     @IBOutlet weak var popUpPanelUIView: UIView!
-    
     @IBOutlet weak var descriptUILabel: UILabel!
     @IBOutlet weak var durationUILabel: UILabel!
     @IBOutlet weak var dismissUIButton: UIButton!
@@ -36,8 +36,14 @@ class AnnotationPopUpViewController: UIViewController {
         // set label value
         descriptUILabel.text = descript
         durationUILabel.text = "Max " + String(duration) + " hours"
+        //when click on background, dismiss the pop up view
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.dismissAnnotationPopUpView))
+        self.backgroundUIView.addGestureRecognizer(gesture)
     }
     
+    @objc func dismissAnnotationPopUpView(sender : UITapGestureRecognizer){
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

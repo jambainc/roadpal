@@ -67,6 +67,7 @@
                         <viewLayoutGuide key="safeArea" id="LfB-de-h4l"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundUIView" destination="Hek-KS-kva" id="v1S-QD-5PT"/>
                         <outlet property="descriptUILabel" destination="yPO-Tz-FhR" id="8xF-XA-Bqi"/>
                         <outlet property="dismissUIButton" destination="N8u-BM-i3h" id="v4X-rD-kJZ"/>
                         <outlet property="durationUILabel" destination="fng-Di-Hj1" id="DzZ-CR-lIk"/>
@@ -367,6 +368,64 @@
             </objects>
             <point key="canvasLocation" x="-647.20000000000005" y="1587.9310344827586"/>
         </scene>
+        <!--About Pop Up View Controller-->
+        <scene sceneID="fHm-rx-Alu">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="kuI-yd-v3g" customClass="AboutPopUpViewController" customModule="RoadPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lER-m5-7x5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqr-bN-kgm">
+                                <rect key="frame" x="0.0" y="215" width="375" height="597"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutPage" translatesAutoresizingMaskIntoConstraints="NO" id="R6Z-Gc-ZNE">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="R6Z-Gc-ZNE" firstAttribute="top" secondItem="cqr-bN-kgm" secondAttribute="top" id="1dt-xk-Ijf"/>
+                                    <constraint firstItem="R6Z-Gc-ZNE" firstAttribute="leading" secondItem="cqr-bN-kgm" secondAttribute="leading" id="Ktp-5s-ocP"/>
+                                    <constraint firstAttribute="height" constant="597" id="mJV-Gm-vuw"/>
+                                    <constraint firstAttribute="bottom" secondItem="R6Z-Gc-ZNE" secondAttribute="bottom" id="vsR-ou-hB6"/>
+                                    <constraint firstAttribute="trailing" secondItem="R6Z-Gc-ZNE" secondAttribute="trailing" id="wzL-PU-R0Y"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MxK-VL-XR3">
+                                <rect key="frame" x="0.0" y="185" width="375" height="30"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gEv-YO-did">
+                                        <rect key="frame" x="153" y="12" width="69" height="6"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hO2-WG-KAf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MxK-VL-XR3" firstAttribute="leading" secondItem="tLJ-OJ-r7x" secondAttribute="leading" id="GtQ-eu-McM"/>
+                            <constraint firstItem="cqr-bN-kgm" firstAttribute="trailing" secondItem="tLJ-OJ-r7x" secondAttribute="trailing" id="az1-nb-8qU"/>
+                            <constraint firstItem="MxK-VL-XR3" firstAttribute="trailing" secondItem="tLJ-OJ-r7x" secondAttribute="trailing" id="eeQ-ld-R63"/>
+                            <constraint firstItem="cqr-bN-kgm" firstAttribute="leading" secondItem="tLJ-OJ-r7x" secondAttribute="leading" id="ezQ-lJ-dYO"/>
+                            <constraint firstAttribute="bottom" secondItem="cqr-bN-kgm" secondAttribute="bottom" id="jsJ-2v-8Gx"/>
+                            <constraint firstItem="cqr-bN-kgm" firstAttribute="top" secondItem="MxK-VL-XR3" secondAttribute="bottom" id="x8Z-ss-zKS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tLJ-OJ-r7x"/>
+                    </view>
+                    <connections>
+                        <outlet property="dismissUIView" destination="MxK-VL-XR3" id="a2t-xr-7hd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ZG-Jt-2kp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="657" y="1588"/>
+        </scene>
         <!--Setting-->
         <scene sceneID="qj7-sC-wPa">
             <objects>
@@ -375,9 +434,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oeh-32-SIt">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oeh-32-SIt">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="196"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Setting." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNc-Ue-sXH">
                                         <rect key="frame" x="32" y="66" width="120" height="43"/>
@@ -395,19 +453,38 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.98431372549999996" blue="0.98829060790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Oeh-32-SIt" secondAttribute="height" multiplier="375:196" id="Ny5-Qv-p45"/>
+                                </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settingCategory1" translatesAutoresizingMaskIntoConstraints="NO" id="xvj-Qf-N2v" customClass="LibraryCardUIImageView" customModule="RoadPal" customModuleProvider="target">
+                                <rect key="frame" x="16" y="212" width="343" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xvj-Qf-N2v" secondAttribute="height" multiplier="343:90" id="F4d-gJ-2IG"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xvj-Qf-N2v" firstAttribute="top" secondItem="Oeh-32-SIt" secondAttribute="bottom" constant="16" id="4Vo-dG-AOZ"/>
+                            <constraint firstItem="xvj-Qf-N2v" firstAttribute="leading" secondItem="EwD-rK-M4y" secondAttribute="leading" constant="16" id="C9n-Xt-IZ0"/>
+                            <constraint firstItem="Oeh-32-SIt" firstAttribute="top" secondItem="7nv-KP-daf" secondAttribute="top" id="QZS-zV-8vM"/>
+                            <constraint firstItem="Oeh-32-SIt" firstAttribute="trailing" secondItem="EwD-rK-M4y" secondAttribute="trailing" id="e9J-Yh-DcT"/>
+                            <constraint firstItem="Oeh-32-SIt" firstAttribute="leading" secondItem="EwD-rK-M4y" secondAttribute="leading" id="fSI-Q0-cJz"/>
+                            <constraint firstItem="EwD-rK-M4y" firstAttribute="trailing" secondItem="xvj-Qf-N2v" secondAttribute="trailing" constant="16" id="rAM-PJ-rJC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="EwD-rK-M4y"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Setting" image="tab-settings-25" id="MGV-i4-UVp"/>
                     <connections>
+                        <outlet property="aboutUIImageView" destination="xvj-Qf-N2v" id="7gi-JP-phW"/>
                         <outlet property="titleView" destination="Oeh-32-SIt" id="Nmd-Bh-rU4"/>
+                        <segue destination="kuI-yd-v3g" kind="presentation" identifier="AboutPopUpViewSegue" id="WDj-ON-uBa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFu-RR-QcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="779"/>
+            <point key="canvasLocation" x="658" y="779"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="9X7-mQ-dir">
@@ -478,6 +555,7 @@
     </scenes>
     <resources>
         <image name="RoadPal conceptual design" width="306" height="568"/>
+        <image name="aboutPage" width="390.239990234375" height="621.3599853515625"/>
         <image name="alarmOff-50" width="37.5" height="37.5"/>
         <image name="centerUser" width="37.5" height="37.5"/>
         <image name="parkSignCategory1" width="286.79998779296875" height="71.519996643066406"/>
@@ -485,6 +563,7 @@
         <image name="parkSignCategory3" width="285.3599853515625" height="71.279998779296875"/>
         <image name="parkSignCategory4" width="286.32000732421875" height="71.519996643066406"/>
         <image name="parkSignCategory5" width="285.83999633789062" height="71.519996643066406"/>
+        <image name="settingCategory1" width="397" height="99"/>
         <image name="tab-library-25" width="18.75" height="18.75"/>
         <image name="tab-parking-25" width="18.75" height="18.75"/>
         <image name="tab-settings-25" width="18.75" height="18.75"/>

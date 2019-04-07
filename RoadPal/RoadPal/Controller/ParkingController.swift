@@ -184,7 +184,7 @@ class ParkingController: UIViewController, MGLMapViewDelegate {
             let myCustomPointAnnotation = MyCustomPointAnnotation()
             myCustomPointAnnotation.coordinate = CLLocationCoordinate2D(latitude: parkingSignDecodable.lat, longitude: parkingSignDecodable.long)
             // set callout title
-            myCustomPointAnnotation.title = "Hi~"
+            myCustomPointAnnotation.title = "You click me"
             // set myCustomPointAnnotation added attributes
             myCustomPointAnnotation.bayid = parkingSignDecodable.bayid
             myCustomPointAnnotation.descript = parkingSignDecodable.description

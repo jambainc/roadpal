@@ -11,12 +11,18 @@ import UIKit
 class SettingController: UIViewController {
     
     @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var aboutUIImageView: LibraryCardUIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.popUpAboutView))
+        self.aboutUIImageView.addGestureRecognizer(gesture)
+        self.aboutUIImageView.isUserInteractionEnabled = true
     }
     
+    @objc func popUpAboutView(sender : UITapGestureRecognizer) {
+        self.performSegue(withIdentifier: "AboutPopUpViewSegue", sender: nil)
+    }
     /*
     // MARK: - Navigation
 
