@@ -18,8 +18,9 @@
 		4B175D31225338D10039E461 /* ParkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B175D30225338D10039E461 /* ParkingController.swift */; };
 		4B175D35225339170039E461 /* LibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B175D34225339170039E461 /* LibraryController.swift */; };
 		4B175D37225339270039E461 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B175D36225339270039E461 /* SettingController.swift */; };
-		4B175D3A22538D8A0039E461 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B175D3922538D8A0039E461 /* LibraryCell.swift */; };
-		4B175D3C22538F700039E461 /* ParkingSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B175D3B22538F700039E461 /* ParkingSign.swift */; };
+		4BA92A8C2258182D00DB4C42 /* LibraryPopUpUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA92A8B2258182D00DB4C42 /* LibraryPopUpUITableViewCell.swift */; };
+		4BA92AB32258944700DB4C42 /* AlarmPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA92AB22258944700DB4C42 /* AlarmPopUpViewController.swift */; };
+		4BD057EA22578550006DE702 /* LibraryPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD057E922578550006DE702 /* LibraryPopUpViewController.swift */; };
 		B9E29875A5897AE7E4B792EC /* libPods-RoadPal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1EC2155B1831F4221A5F82 /* libPods-RoadPal.a */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +39,9 @@
 		4B175D30225338D10039E461 /* ParkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingController.swift; sourceTree = "<group>"; };
 		4B175D34225339170039E461 /* LibraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryController.swift; sourceTree = "<group>"; };
 		4B175D36225339270039E461 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
-		4B175D3922538D8A0039E461 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
-		4B175D3B22538F700039E461 /* ParkingSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParkingSign.swift; path = RoadPal/TableViewCell/ParkingSign.swift; sourceTree = SOURCE_ROOT; };
+		4BA92A8B2258182D00DB4C42 /* LibraryPopUpUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPopUpUITableViewCell.swift; sourceTree = "<group>"; };
+		4BA92AB22258944700DB4C42 /* AlarmPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewController.swift; sourceTree = "<group>"; };
+		4BD057E922578550006DE702 /* LibraryPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPopUpViewController.swift; sourceTree = "<group>"; };
 		63BEF3C77F71885F691054A8 /* Pods-RoadPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadPal/Pods-RoadPal.debug.xcconfig"; sourceTree = "<group>"; };
 		DABD8B1B36DACEA946A682C0 /* Pods-RoadPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadPal.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadPal/Pods-RoadPal.release.xcconfig"; sourceTree = "<group>"; };
 		F95D2B3E22534E58006C041C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -108,6 +110,8 @@
 				4B175D34225339170039E461 /* LibraryController.swift */,
 				4B175D36225339270039E461 /* SettingController.swift */,
 				4B10758522561190007D5D89 /* AnnotationPopUpViewController.swift */,
+				4BD057E922578550006DE702 /* LibraryPopUpViewController.swift */,
+				4BA92AB22258944700DB4C42 /* AlarmPopUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -115,7 +119,6 @@
 		4B175D33225338F00039E461 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4B175D3B22538F700039E461 /* ParkingSign.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,7 +126,7 @@
 		4B175D3822538D3D0039E461 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				4B175D3922538D8A0039E461 /* LibraryCell.swift */,
+				4BA92A8B2258182D00DB4C42 /* LibraryPopUpUITableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -270,13 +273,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BA92AB32258944700DB4C42 /* AlarmPopUpViewController.swift in Sources */,
 				4B175D37225339270039E461 /* SettingController.swift in Sources */,
+				4BD057EA22578550006DE702 /* LibraryPopUpViewController.swift in Sources */,
+				4BA92A8C2258182D00DB4C42 /* LibraryPopUpUITableViewCell.swift in Sources */,
 				4B175D24225336010039E461 /* RoadPal.xcdatamodeld in Sources */,
 				4B175D1C225336010039E461 /* AppDelegate.swift in Sources */,
-				4B175D3A22538D8A0039E461 /* LibraryCell.swift in Sources */,
 				4B10758622561190007D5D89 /* AnnotationPopUpViewController.swift in Sources */,
 				4B175D31225338D10039E461 /* ParkingController.swift in Sources */,
-				4B175D3C22538F700039E461 /* ParkingSign.swift in Sources */,
 				4B175D35225339170039E461 /* LibraryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

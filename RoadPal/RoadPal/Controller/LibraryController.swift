@@ -7,62 +7,88 @@
 //
 
 import UIKit
+import Foundation
+
+
+// define the library PanelUIView (card) style including round corner and shadow
+class LibraryCardUIImageView: UIImageView{
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        //define the imageView style
+        self.layer.cornerRadius = 3
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 1.75)
+        self.layer.shadowRadius = 1.7
+        self.layer.shadowOpacity = 0.45
+        self.layer.backgroundColor = UIColor.white.cgColor
+    }
+}
+
 
 class LibraryController: UIViewController {
 
-    @IBOutlet weak var titleView: UIView!
-    @IBOutlet weak var uiTableView: UITableView!
+    @IBOutlet weak var firstUIImageView: LibraryCardUIImageView!
+    @IBOutlet weak var secondUIImageView: LibraryCardUIImageView!
+    @IBOutlet weak var thirdUIImageView: LibraryCardUIImageView!
+    @IBOutlet weak var fourthUIImageView: LibraryCardUIImageView!
+    @IBOutlet weak var fifthUIImageView: LibraryCardUIImageView!
     
-    var parkingSigns: [ParkingSign] = []
     
+    //define a var to store which card user choose and used for navigation segue
+    var libraryPopUpViewSegueData = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setShadow()
-        // after the view load, create some temporary data
-        parkingSigns = createTempData()
-        
+        let gesture1 = UITapGestureRecognizer(target: self, action:  #selector(self.popUpGesture1TableView))
+        self.firstUIImageView.addGestureRecognizer(gesture1)
+        self.firstUIImageView.isUserInteractionEnabled = true
+        let gesture2 = UITapGestureRecognizer(target: self, action:  #selector(self.popUpGesture2TableView))
+        self.secondUIImageView.addGestureRecognizer(gesture2)
+        self.secondUIImageView.isUserInteractionEnabled = true
+        let gesture3 = UITapGestureRecognizer(target: self, action:  #selector(self.popUpGesture3TableView))
+        self.thirdUIImageView.addGestureRecognizer(gesture3)
+        self.thirdUIImageView.isUserInteractionEnabled = true
+        let gesture4 = UITapGestureRecognizer(target: self, action:  #selector(self.popUpGesture4TableView))
+        self.fourthUIImageView.addGestureRecognizer(gesture4)
+        self.fourthUIImageView.isUserInteractionEnabled = true
+        let gesture5 = UITapGestureRecognizer(target: self, action:  #selector(self.popUpGesture5TableView))
+        self.fifthUIImageView.addGestureRecognizer(gesture5)
+        self.fifthUIImageView.isUserInteractionEnabled = true
     }
     
-    func setShadow(){
-        titleView.layer.shadowColor = UIColor.lightGray.cgColor
-        titleView.layer.shadowOpacity = 1
-        titleView.layer.shadowOffset = CGSize.zero
-        titleView.layer.shadowRadius = 10
+    //the 5 card onclick listener
+    @objc func popUpGesture1TableView(sender : UITapGestureRecognizer) {
+        //pop up the table view of selected category
+        libraryPopUpViewSegueData = 0
+        self.performSegue(withIdentifier: "libraryPopUpViewSegue", sender: nil)
+    }
+    @objc func popUpGesture2TableView(sender : UITapGestureRecognizer) {
+        //pop up the table view of selected category
+        libraryPopUpViewSegueData = 1
+        self.performSegue(withIdentifier: "libraryPopUpViewSegue", sender: nil)
+    }
+    @objc func popUpGesture3TableView(sender : UITapGestureRecognizer) {
+        //pop up the table view of selected category
+        libraryPopUpViewSegueData = 2
+        self.performSegue(withIdentifier: "libraryPopUpViewSegue", sender: nil)
+    }
+    @objc func popUpGesture4TableView(sender : UITapGestureRecognizer) {
+        //pop up the table view of selected category
+        libraryPopUpViewSegueData = 3
+        self.performSegue(withIdentifier: "libraryPopUpViewSegue", sender: nil)
+    }
+    @objc func popUpGesture5TableView(sender : UITapGestureRecognizer) {
+        //pop up the table view of selected category
+        libraryPopUpViewSegueData = 4
+        self.performSegue(withIdentifier: "libraryPopUpViewSegue", sender: nil)
     }
     
-    func createTempData() -> [ParkingSign] {
-        var tempParkingSigns: [ParkingSign] = []
-        
-        let parkingSign1 = ParkingSign(image: UIImage(named: "parkingSign1")!, title: "parkingSign1")
-        let parkingSign2 = ParkingSign(image: UIImage(named: "parkingSign2")!, title: "parkingSign2")
-        let parkingSign3 = ParkingSign(image: UIImage(named: "parkingSign3")!, title: "parkingSign3")
-        let parkingSign4 = ParkingSign(image: UIImage(named: "parkingSign4")!, title: "parkingSign4")
-        let parkingSign5 = ParkingSign(image: UIImage(named: "parkingSign5")!, title: "parkingSign5")
-       
-        tempParkingSigns.append(parkingSign1)
-        tempParkingSigns.append(parkingSign2)
-        tempParkingSigns.append(parkingSign3)
-        tempParkingSigns.append(parkingSign4)
-        tempParkingSigns.append(parkingSign5)
-        
-        return tempParkingSigns
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let libraryPopUpViewController = segue.destination as? LibraryPopUpViewController
+        libraryPopUpViewController?.categoryNum = libraryPopUpViewSegueData
     }
+    
 }
 
-extension LibraryController: UITableViewDataSource, UITableViewDelegate {
-    
-    // decide how many parking signs in the table view (section)
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return parkingSigns.count
-    }
-    
-    //
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let parkingSign = parkingSigns[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LibraryCell") as! LibraryCell
-        cell.setParkingSign(parkingSign: parkingSign)
-        return cell
-    }
-
-}

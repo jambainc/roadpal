@@ -8,6 +8,7 @@
 
 // melbourne cental: -37.809992, 144.962757
 // caulfield       : -37.876472, 145.044806
+// mapbox token    : pk.eyJ1IjoibWljaGFlbGlzbSIsImEiOiJjamw5Nzh3ZjYzcjNkM3Fuc21taThlam9tIn0.tnug_ZQm-Iauvw3bfoUqrA
 
 import Mapbox
 
@@ -70,16 +71,39 @@ class MyCustomPointAnnotation: MGLPointAnnotation {
 class ParkingController: UIViewController, MGLMapViewDelegate {
     
     @IBOutlet weak var mapView: MGLMapView!
+    @IBOutlet weak var alarmUIButtonOutlet: UIButton!
     
     let locationManager = CLLocationManager()
     
     var parkingSignDecodables: [ParkingSignDecodable]!
+    
+    //is the alarm on? defaule value is false
+    var alarmOn = false
+    
+    //alarm minute
+    var alarmMinutes = 10
+    
+    //when this button is click, the view will center back to user location
+    @IBAction func centerViewOnUserUIButton(_ sender: Any) {
+        centerViewOnUserLocation()
+    }
+    
     
     // A array stored data for navigating to annotationPopUpContoller
     var annotationPopUpViewSegueData = ["",""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //set the alarm icon based on the alarm on/off
+        if self.alarmOn {
+            alarmUIButtonOutlet.setImage(UIImage(named: "alarmOn-50"), for: .normal)
+        }else{
+            alarmUIButtonOutlet.setImage(UIImage(named: "alarmOff-50"), for: .normal)
+        }
+        
+        
+        /** 暂时停掉map功能**/
         
         // Set map view's delegate
         mapView.delegate = self
@@ -92,6 +116,7 @@ class ParkingController: UIViewController, MGLMapViewDelegate {
         // add Annotations to the map
         addParkingSignAnnotation()
 
+ 
     }
     
     func checkLocationServices(){
@@ -136,6 +161,7 @@ class ParkingController: UIViewController, MGLMapViewDelegate {
             mapView.setCenter(CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), zoomLevel: 12, animated: true)
         }
     }
+    
     
     //test
     func readJsonFile(){
@@ -228,20 +254,33 @@ class ParkingController: UIViewController, MGLMapViewDelegate {
      // MARK: - Navigation
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // if the destination is AnnotationPopUpViewController
         if let annotationPopUpViewController = segue.destination as? AnnotationPopUpViewController {
             // set up the destination view's label
-
             annotationPopUpViewController.descript = annotationPopUpViewSegueData[0]
             annotationPopUpViewController.duration = annotationPopUpViewSegueData[1]
-        }
-        else {
-            
+        } //if the destination is AlarmPopUpViewController
+        else if let alarmPopUpViewController = segue.destination as? AlarmPopUpViewController{
+            alarmPopUpViewController.alarmOn = self.alarmOn
+            alarmPopUpViewController.alarmMinutes = self.alarmMinutes
         }
      }
+    
+    // This method deal with the action after unwill from AlarmPopUpView
+    @IBAction func backFromAlarmPopUpViewController(sender: UIStoryboardSegue){
+        guard let alarmPopUpViewController = sender.source as? AlarmPopUpViewController else {return}
+        self.alarmOn = alarmPopUpViewController.alarmOn
+        self.alarmMinutes = alarmPopUpViewController.alarmMinutes
+        //set the alarm icon based on the alarm on/off
+        if self.alarmOn {
+            alarmUIButtonOutlet.setImage(UIImage(named: "alarmOn-50"), for: .normal)
+        }else{
+            alarmUIButtonOutlet.setImage(UIImage(named: "alarmOff-50"), for: .normal)
+        }
+    }
 }
 
 extension ParkingController: CLLocationManagerDelegate{
-    
     //This method deal with updating location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         guard let location = locations.last else {return} // if last location is the same (nil), the following code do not run
