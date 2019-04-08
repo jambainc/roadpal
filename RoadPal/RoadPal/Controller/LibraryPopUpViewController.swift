@@ -18,8 +18,8 @@ class LibraryPopUpViewController: UIViewController {
     
     let imageNames = [
         ["parkingSignP1", "parkingSignP2",  "parkingSignP3", "parkingSignP1"],
-        ["parkingSign3", "parkingSign4", "parkingSign5"],
-        ["parkingSign1", "parkingSign2"],
+        ["parkingSignZ1", "parkingSignZ2", "parkingSignZ3", "parkingSignZ4", "parkingSignZ5", "parkingSignZ6"],
+        ["parkingSignZ1", "parkingSignZ2", "parkingSignZ3", "parkingSignZ4", "parkingSignZ5", "parkingSignZ6"],
         ["parkingSign1", "parkingSign2", "parkingSign3", "parkingSign4"],
         ["parkingSign1", "parkingSign2", "parkingSign3", "parkingSign4", "parkingSign5"]
     ]

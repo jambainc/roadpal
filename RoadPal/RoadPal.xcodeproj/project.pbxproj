@@ -93,7 +93,6 @@
 			children = (
 				4B10755D22558FD8007D5D89 /* File */,
 				4B175D3822538D3D0039E461 /* TableViewCell */,
-				4B175D33225338F00039E461 /* Model */,
 				4B175D32225338E20039E461 /* Controller */,
 				4B175D1B225336010039E461 /* AppDelegate.swift */,
 				4B175D1F225336010039E461 /* Main.storyboard */,
@@ -118,13 +117,6 @@
 				4BA92AB42259943B00DB4C42 /* AboutPopUpViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		4B175D33225338F00039E461 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		4B175D3822538D3D0039E461 /* TableViewCell */ = {

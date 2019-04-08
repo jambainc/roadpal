@@ -12,6 +12,12 @@
 
 import Mapbox
 
+//test
+struct DecoTest: Decodable{
+    let rd_seg_id: Int
+    let restriction_bay_id: Int
+}
+
 struct ParkingSignDecodable: Decodable {
     let bayid: Int
     let lat: Double
@@ -73,8 +79,8 @@ class ParkingController: UIViewController, MGLMapViewDelegate {
     @IBOutlet weak var mapView: MGLMapView!
     @IBOutlet weak var alarmUIButtonOutlet: UIButton!
     
+    let dispatchGroup = DispatchGroup()
     let locationManager = CLLocationManager()
-    
     var parkingSignDecodables: [ParkingSignDecodable]!
     
     //is the alarm on? defaule value is false
@@ -103,7 +109,24 @@ class ParkingController: UIViewController, MGLMapViewDelegate {
         }
         
         
-        /** 暂时停掉map功能**/
+        
+        //make http request to fetch data from server
+        requestDataFromServer()
+        
+        dispatchGroup.notify(queue: .main){
+            // Set map view's delegate
+            self.mapView.delegate = self
+            // Set map user annotation style (light blue)
+            self.mapView.tintColor = UIColor(red: 117/255, green: 188/255, blue: 236/255, alpha: 1)
+            // after the view is load, check the location service
+            self.checkLocationServices()
+            
+            // add Annotations to the map
+            self.addParkingSignAnnotation()
+        }
+        
+        
+        /** 暂时停掉map功能
         
         // Set map view's delegate
         mapView.delegate = self
@@ -111,11 +134,10 @@ class ParkingController: UIViewController, MGLMapViewDelegate {
         mapView.tintColor = UIColor(red: 117/255, green: 188/255, blue: 236/255, alpha: 1)
         // after the view is load, check the location service
         checkLocationServices()
-        //test
-        readJsonFile()
+        
         // add Annotations to the map
         addParkingSignAnnotation()
-
+**/
  
     }
     
@@ -158,21 +180,46 @@ class ParkingController: UIViewController, MGLMapViewDelegate {
     func centerViewOnUserLocation(){
         // if the location of locationManager is not null, center the view to user location
         if let location = locationManager.location?.coordinate{
-            mapView.setCenter(CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), zoomLevel: 12, animated: true)
+            mapView.setCenter(CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), zoomLevel: 17, animated: true)
         }
     }
     
     
-    //test
-    func readJsonFile(){
-        let path = Bundle.main.path(forResource: "parking_json2", ofType: "json")
-        let url = URL(fileURLWithPath: path!)
-        let data = try! Data(contentsOf: url)
+    // make http request to fetch data from server
+    func requestDataFromServer(){
+        
+        
+        //let path = Bundle.main.path(forResource: "parking_json2", ofType: "json")
+        //let url = URL(fileURLWithPath: path!)
+        //let data = try! Data(contentsOf: url)
         //useless, just for print out jsons
-        let jsons = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-        print(jsons)
-        let parkingSignDecodables = try! JSONDecoder().decode([ParkingSignDecodable].self, from: data)
-        self.parkingSignDecodables = parkingSignDecodables
+        //let jsons = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+        //print(jsons)
+        //let parkingSignDecodables = try! JSONDecoder().decode([ParkingSignDecodable].self, from: data)
+        //self.parkingSignDecodables = parkingSignDecodables
+        
+        //create url session to get users data from database
+        
+        //enter
+        self.dispatchGroup.enter()
+        
+        let url = URL(string: "http://13.211.98.59:1234/items")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        URLSession.shared.dataTask(with: request) {(data, response, error) in
+            do{
+                //decode the data and store in an array call users
+                let parkingSignDecodables = try JSONDecoder().decode([ParkingSignDecodable].self, from: data!)
+                //print(parkingSignDecodables)
+                self.parkingSignDecodables = parkingSignDecodables
+                //leave
+                self.dispatchGroup.leave()
+            }catch{
+                print("Error info: \(error)")
+            }
+        }.resume()
+        
+
     }
     
     func addParkingSignAnnotation(){
@@ -285,7 +332,7 @@ extension ParkingController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         guard let location = locations.last else {return} // if last location is the same (nil), the following code do not run
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) // if have new location, create a center according to the new location
-        mapView.setCenter(CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude), zoomLevel: 12, animated: true) // set center to the map. zoomLevel should be consistent with centerViewOnUserLocation()
+        mapView.setCenter(CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude), zoomLevel: 17, animated: true) // set center to the map. zoomLevel should be consistent with centerViewOnUserLocation()
     }
     
     // this method deal with the Authorization changes
